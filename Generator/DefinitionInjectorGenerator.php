@@ -80,7 +80,7 @@ class DefinitionInjectorGenerator
             $writer->writeln('$'.$name.' = new \\'.ltrim($inlineDef->getClass(), "\\").$this->dumpArguments($inlineDef->getArguments()).';');
         }
 
-        $writer->writeln('$instance = new \\'.ltrim($def->getClass(), "\\").$this->dumpArguments($def->getArguments()).';');
+        $writer->writeln('$instance = new \\'.$className.$this->dumpArguments($def->getArguments()).';');
 
         foreach ($def->getMethodCalls() as $call) {
             list($method, $arguments) = $call;
